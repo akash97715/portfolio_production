@@ -2,14 +2,13 @@
 
 <!doctype html>
 <html lang="en">
-{% load staticfiles %}
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.5">
-    <title>AKASH</title>
+    <title>Album example · Bootstrap</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
 
@@ -40,20 +39,20 @@
     <header>
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="{% url 'home' %}">Akash(King)</a>
+  <a class="navbar-brand" href="#">Akash(King)</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link" href="http://www.linkedin.com/in/akash-deep-71931a112">Linkdin </a>
+        <a class="nav-link" href="#">Linkdin </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% static 'Akash_Deep_Resume.pdf' %}">Resume</a>
+        <a class="nav-link" href="#">Resume</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'allblogs' %}">Blog</a>
+        <a class="nav-link active" href="#">Blog</a>
       </li>
       <li class="nav-item">
 
@@ -64,41 +63,24 @@
 </header>
 
 <main role="main">
-
-  <section class="jumbotron text-center">
-    <div class="container">
-      <h1 class="jumbotron-heading">Hi, I am Akash</h1>
-      <p class="lead text-muted"> Hi I am Akash, I love to do research on Mathematical Model, having deep interest in solving data science problems</p>
-      <p>
-        <a href="mailto:akash97715@gmail.com" class="btn btn-primary my-2">Email me..</a>
-
-      </p>
-        <img src="{% static 'aka.jpg' %}" height=300 />
-    </div>
-  </section>
-
-  <div class="album py-5 bg-light">
     <div class="container">
 
-      <div class="row">
+  <h1 class="text-center pt-3">Welcome to Sky's Blog</h1>
+    <br />
+    <br />
+    <br />
+    <h2>Latest post</h2>
+        <hr />
 
-        {% for job in jobs.all %}
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class="card-img-top" src="{{ job.image.url}}" />
-            <div class="card-body">
-              <p class="card-text">{{ job.summary }}</p>
-
-            </div>
-          </div>
-        </div>
-
+        {% for blog in blogs.all %}
+            <a href=""><h3>{{ blog.title }}</h3></a>
+            {{ blog.pub_date_pretty }}
+            <br />
+            <img class=".img-fluid" src="{{ blog.image.url }}" height=200 wideth=200/>
+            <br />
+            <p>{{ blog.summary }}</p>
         {% endfor %}
-        </div>
-
-      </div>
-    </div>
-  </div>
+ </div>
 
 </main>
 
